@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <link rel="stylesheet" href="style.css" />
+    <title>Monster Slayer</title>
+  </head>
+  <body>
+    <div id="app">
+      <header>
+        <div class="headerContainer">
+          <div class="headerItem">
+            <h1>
+              YOU
+            </h1>
+            <div class="points">
+              {{ meScore }}
+            </div>
+          </div>
+          <div class="headerItem">
+            <h1>MONSTER</h1>
+            <div class="points">
+              {{ monsterScore }}
+            </div>
+          </div>
+        </div>
+      </header>
+      <main>
+        <section>
+          <div class="buttonContainer">
+            <button
+              class="button"
+              v-if="startGame"
+              @click="attack(getRandomMaxTen)"
+            >
+              Attack
+            </button>
+            <button
+              class="button"
+              v-if="startGame"
+              @click="attack(getRandomMaxTwenty)"
+            >
+              special attack
+            </button>
+            <button class="button" v-if="startGame" @click="heal">heal</button>
+            <button class="button" v-if="startGame">give up</button>
+            <button
+              class="button"
+              v-if="!startGame"
+              @click="startGame = true, meScore = 100, monsterScore = 100"
+            >
+              Start game
+            </button>
+          </div>
+        </section>
+        <section>
+          <ul>
+            <li></li>
+          </ul>
+        </section>
+      </main>
+    </div>
+    <script type="text/javascript" src="script.js"></script>
+  </body>
+</html>
