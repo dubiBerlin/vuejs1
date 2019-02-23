@@ -15,14 +15,15 @@
             <h1>
               YOU
             </h1>
-            <div class="points">
+            <div   :style="{color:'blue', width:meScore+'%'}" class="points progress">
               {{ meScore }}
             </div>
           </div>
           <div class="headerItem">
             <h1>MONSTER</h1>
-            <div class="points">
-              {{ monsterScore }}
+            <div  :style="{color:'blue', width:monsterScore+'%'}" class="points progress">
+              
+                {{ monsterScore }}
             </div>
           </div>
         </div>
@@ -57,7 +58,9 @@
         </section>
         <section>
           <ul>
-            <li></li>
+            <li v-for="(point) in points">
+              <span :style="{backgroundColor:point.color}">{{point.text}}</span>
+            </li>
           </ul>
         </section>
       </main>

@@ -4,7 +4,7 @@ new Vue({
     startGame: false,
     meScore: 100,
     monsterScore: 100,
-    point: []
+    points: []
   },
   methods: {
     attack: function(randomFnc) {
@@ -12,11 +12,11 @@ new Vue({
       const moRnd = randomFnc();
       console.log("meRnd: ", meRnd);
       console.log("moRnd: ", moRnd);
-      this.point.push({
+      this.points.push({
         text: "PLAYER HITS MONSTER FOR " + meRnd,
         color: "blue"
       });
-      this.point.push({
+      this.points.push({
         text: "MONSTER HITS PLAYER FOR " + moRnd,
         color: "red"
       });
@@ -77,8 +77,10 @@ new Vue({
         this.meScore = this.meScore - monsterHit;
       }
 
-      this.point.push("PLAYER HEALS HIMSELF FOR " + healMe);
-      this.point.push("MONSTER HITS PLAYER FOR " + monsterHit);
+      this.points.push({text:"PLAYER HEALS HIMSELF FOR " + healMe,
+      color: "blue"});
+      this.points.push({text:"MONSTER HITS PLAYER FOR " + monsterHit,
+      color: "red"});
     }
   }
 });

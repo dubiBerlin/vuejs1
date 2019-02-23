@@ -17,10 +17,13 @@
 }
 
 .points {
-  background-color: green;
   text-align: center;
   vertical-align: middle;
   height: 70px;
+}
+
+.progress {
+  background-color: green;
 }
 
 .buttonContainer {
